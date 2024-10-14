@@ -1,0 +1,67 @@
+import './App.css';
+import { useEffect, useState } from 'react';
+
+function App() {
+  const [filmes, setFilmes] = useState({
+    Search: [
+      {
+        Title: 'Inception',
+        Year: '2010',
+        imdbID: 'tt1375666',
+        Type: 'movie',
+        Poster: 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg',
+      },
+      {
+        Title: 'The Matrix',
+        Year: '1999',
+        imdbID: 'tt0133093',
+        Type: 'movie',
+        Poster: 'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg',
+      },
+      {
+        Title: 'Blade Runner 2049',
+        Year: '2017',
+        imdbID: 'tt1856101',
+        Type: 'movie',
+        Poster: 'https://br.web.img3.acsta.net/c_310_420/pictures/17/08/25/11/58/463146.jpg',
+      },
+      {
+        Title: 'The Shawshank Redemption',
+        Year: '1994',
+        imdbID: 'tt0111161',
+        Type: 'movie',
+        Poster: 'https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/16/48/20083748.jpg',
+      },
+      {
+        Title: 'Parasite',
+        Year: '2019',
+        imdbID: 'tt6751668',
+        Type: 'movie',
+        Poster: 'https://br.web.img3.acsta.net/c_310_420/pictures/19/10/04/19/58/1046648.jpg',
+      },
+    ]
+  });
+
+  useEffect(() => {
+    // Aqui você pode fazer uma chamada para API e preencher o estado "filmes"
+  }, []);
+
+  return (
+    <div className="App">
+      <div className="boxFilmes">
+        <h2>App Filmes SENAC</h2>
+        <div className="filmesGrid">
+          {filmes.Search.map((val, index) => (
+            <div className="filmeCard" key={index}>
+              <h3>{val.Title}</h3>
+              <img src={val.Poster} alt={val.Title} />
+              <p><strong>Ano:</strong> {val.Year}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
